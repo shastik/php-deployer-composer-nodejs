@@ -1,7 +1,7 @@
 FROM php:7.3-fpm-buster
 
 RUN apt-get update -qq \
-    && apt-get install -y curl git zip unzip make bash libicu-dev g++ libzip-dev libpng-dev libbz2-dev libpq-dev gnupg sudo libpng-dev libjpeg-dev libfreetype6-dev \
+    && apt-get install -y rsync curl git zip unzip make bash libicu-dev g++ libzip-dev libpng-dev libbz2-dev libpq-dev gnupg sudo libpng-dev libjpeg-dev libfreetype6-dev \
     && pecl install apcu igbinary \
     && docker-php-ext-install zip exif bcmath sysvsem intl \
     && curl -sS https://getcomposer.org/installer | php \
