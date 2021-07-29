@@ -1,4 +1,4 @@
-FROM php:7.3-fpm-buster
+FROM php:7.4-fpm-buster
 
 RUN apt-get update -qq \
     && apt-get install -y rsync curl git zip unzip make bash libicu-dev g++ libzip-dev libpng-dev libbz2-dev libpq-dev gnupg sudo libpng-dev libjpeg-dev libfreetype6-dev \
@@ -15,9 +15,8 @@ RUN apt-get update -qq \
         && ln -sf /usr/bin/node /usr/bin/nodejs \
     && apt-get install -y libpng-dev libjpeg-dev libfreetype6-dev \
         && docker-php-ext-configure gd \
-            --with-freetype-dir=/usr/include/freetype2 \
-            --with-png-dir=/usr/include \
-            --with-jpeg-dir=/usr/include \
+            --with-freetype \
+            --with-jpeg \
         && docker-php-ext-install gd \
     && apt-get clean \
     && composer global require deployer/deployer \
