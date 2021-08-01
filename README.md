@@ -19,3 +19,21 @@ Connect into container:
 ```
 docker exec -it php-deployer-composer-nodejs bash
 ```
+
+## Publish to DockerHub
+
+Build an image:
+
+```
+docker image build -t svatoplukhastik/php-deployer-composer-nodejs:2.0.0 .
+```
+
+Publish to DockerHub (login first):
+
+```
+docker login
+```
+
+```
+docker push svatoplukhastik/php-deployer-composer-nodejs:2.0.0
+```
