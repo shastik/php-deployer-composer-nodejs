@@ -25,7 +25,7 @@ docker exec -it php-deployer-composer-nodejs bash
 Build an image:
 
 ```
-docker image build -t svatoplukhastik/php-deployer-composer-nodejs:2.0.0 .
+docker image build --platform linux/amd64 -t svatoplukhastik/php-deployer-composer-nodejs:2.0.0 .
 ```
 
 Publish to DockerHub (login first):
