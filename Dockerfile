@@ -10,7 +10,7 @@ RUN apt-get update -qq \
     && echo 'apc.enable_cli=1' >> /usr/local/etc/php/php.ini \
     && echo 'apc.enable=1' >> /usr/local/etc/php/php.ini \
     && echo 'extension=igbinary' >> /usr/local/etc/php/php.ini \
-    && curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash - \
+    && curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash - \
         && apt-get install -y nodejs \
         && ln -sf /usr/bin/node /usr/bin/nodejs \
     && apt-get install -y libpng-dev libjpeg-dev libfreetype6-dev \
