@@ -1,4 +1,4 @@
-FROM php:7.4-fpm-buster
+FROM --platform=linux/amd64 php:7.4-fpm-buster
 
 RUN apt-get update -qq \
     && apt-get install -y rsync curl git zip unzip make bash libicu-dev g++ libzip-dev libpng-dev libbz2-dev libpq-dev gnupg sudo libpng-dev libjpeg-dev libfreetype6-dev \

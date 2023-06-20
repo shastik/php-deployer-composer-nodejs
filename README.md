@@ -5,7 +5,7 @@
 Create container:
 
 ```
-docker build -t php-deployer-composer-nodejs .
+docker build --no-cache --platform linux/amd64 -t php-deployer-composer-nodejs .
 ```
 
 Run container in background:
@@ -25,7 +25,19 @@ docker exec -it php-deployer-composer-nodejs bash
 Build an image:
 
 ```
-docker image build --platform linux/amd64 -t svatoplukhastik/php-deployer-composer-nodejs:2.0.0 .
+docker image build --no-cache --platform linux/amd64 -t svatoplukhastik/php-deployer-composer-nodejs:2.3.0 .
+```
+
+Check if image is correctly build in `linux/amd64` platform:
+
+```
+docker image inspect %imageid%
+```
+
+In case of problem with target architecture try to remove old previous images that are build with arm64 with command:
+
+```
+docker rmi $(docker images -aq)
 ```
 
 Publish to DockerHub (login first):
@@ -35,5 +47,5 @@ docker login
 ```
 
 ```
-docker push svatoplukhastik/php-deployer-composer-nodejs:2.0.0
+docker push svatoplukhastik/php-deployer-composer-nodejs:2.3.0
 ```
